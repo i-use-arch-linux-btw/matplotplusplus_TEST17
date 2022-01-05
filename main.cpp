@@ -8,11 +8,10 @@
 
 int main() {
     using namespace matplot;
-    using namespace csv;
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    CSVReader reader("/home/ap/CLionProjects/matplotplusplus-TEST17/csvs/2021.10.23EOSUSDT-M1-NoSession.csv");
+    csv::CSVReader reader("/home/ap/CLionProjects/matplotplusplus-TEST17/csvs/2021.10.23EOSUSDT-M1-NoSession.csv");
 
     std::vector<float> x;
     std::vector<double> y;
@@ -20,12 +19,12 @@ int main() {
 
     int miniCounter = 0;
     float miniSum = 0;
-    int numberOf1mBars = 1;
+    int numberOf1mBars = 1000;
 
     double max = 0;
     double min = 9999999999999999;
 
-    for (CSVRow& row: reader) {
+    for (csv::CSVRow& row: reader) {
 
         float close = row["Close"].get<float>();
         miniSum += close;
